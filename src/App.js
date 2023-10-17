@@ -1,18 +1,22 @@
-import Todo  from "./components/Todo";
+import { Route, Routes } from "react-router-dom";
+import AllMeetupsPage from "./pages/AllMeetups";
+import NewMeetupsPage from "./pages/NewMeetup";
+import FavoritesPage from "./pages/Favorites";
+import MainNavigation from "./components/layout/MainNavigation";
 
 function App() {
   return (
     <div>
-      <h1>My todos</h1>
-      <Todo text='Learn React' /> 
-      <Todo text='Master React'/>
-      <Todo text= 'Explore the full React course' />
-      
-      {/* kaç tane todo yazarsan sayfada o kadar kutucuk olusuyor */}
-      {/* todo klasöründe bir tane span yazsan bile kutucuk kadar span ekliyor */}
+      <MainNavigation />
+     
+        <Routes>
+          <Route path="/" element={<AllMeetupsPage />} />
+          <Route path="/new-meetup" element={<NewMeetupsPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+        </Routes>
+
     </div>
   );
-
 }
 
 export default App;
