@@ -1,5 +1,6 @@
 import MeetupItem from "./MeetupItem";
 import classes from "./MeetupList.module.css";
+
 function MeetupList(props) {
   return (
     <ul className={classes.list}>
@@ -11,9 +12,12 @@ function MeetupList(props) {
           title={meetup.title}
           address={meetup.address}
           description={meetup.description}
+
+    
         />
       ))}
     </ul>
   );
 }
+
 export default MeetupList;
