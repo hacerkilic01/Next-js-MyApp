@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
 
-function NewMeetupForm() {
+function NewMeetupForm(props) {
   const titleInputRef = useRef();
   const imageInputRef = useRef();
   const addressInputRef= useRef();
@@ -26,13 +26,13 @@ function NewMeetupForm() {
         description: enteredDescription,
 
     };
-    console.log(meetupData);
+    props.onAddMeetup(meetupData);
 
   }
 
   return (
     <Card>
-      <form className={classes.form} onsubmit={submitHandler}>
+      <form className={classes.form} onSubmit={submitHandler}>
         {/* CSS dosyasında tanımlanan form sınıfını temsil eder */}
         <div className={classes.control}>
           <label htmlFor="title">Meetup Title</label>
@@ -51,7 +51,7 @@ function NewMeetupForm() {
           <label htmlFor="description">Description</label>
           <textarea id="description" required rows="5" ref={descriptionInputRef}></textarea>
         </div>
-        <div className={classes.action}>
+        <div className={classes.actions}>
           <button>Add Meetup</button>
         </div>
       </form>
